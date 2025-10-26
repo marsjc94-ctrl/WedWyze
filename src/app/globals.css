@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: white;
-  color: black;
-}
+:root { color-scheme: light; }
+body { color: theme('colors.brand.ink'); background: #fff; }
+a { text-underline-offset: 2px; }
