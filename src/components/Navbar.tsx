@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 function NavLink({
@@ -17,7 +16,7 @@ function NavLink({
     <Link
       href={href}
       className={`px-3 py-2 rounded-md text-sm transition ${
-        active ? "bg-brand.rose text-white" : "text-brand.ink hover:bg-brand.blush"
+        active ? "bg-rose-500 text-white" : "text-gray-800 hover:bg-rose-50"
       }`}
     >
       {children}
@@ -30,14 +29,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
       <div className="mx-auto max-w-6xl h-16 px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/logo.svg"
-            alt="WedWyze"
-            width={28}
-            height={28}
-            priority
-          />
-          <span className="font-semibold text-lg text-brand.ink">WedWyze</span>
+          <span className="inline-block w-7 h-7 rounded-md bg-rose-500" />
+          <span className="font-semibold text-lg text-gray-900">WedWyze</span>
         </Link>
         <nav className="flex items-center gap-2">
           <NavLink href="/couples">Couples</NavLink>
@@ -46,7 +39,7 @@ export default function Navbar() {
           <NavLink href="/contact">Contact</NavLink>
           <Link
             href="/r/demo"
-            className="ml-2 px-4 py-2 rounded-md text-sm bg-brand.ink text-white hover:opacity-90"
+            className="ml-2 px-4 py-2 rounded-md text-sm bg-gray-900 text-white hover:opacity-90"
           >
             Try RSVP
           </Link>
