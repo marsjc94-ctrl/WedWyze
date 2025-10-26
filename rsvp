@@ -1,0 +1,15 @@
+src/app/guest/[eventId]/rsvp/page.tsx
+# make sure you’re on main
+git checkout main
+
+# pull latest (if you edited on GitHub UI)
+git pull
+
+# (edit files, add features)
+
+# stage + commit your changes
+git add .
+git commit -m "feat: RSVP page, Twilio action, ICS utility, supabase schema"
+
+# push to GitHub → Vercel auto-deploys
+git push origin main
