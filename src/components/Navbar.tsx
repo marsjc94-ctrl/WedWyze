@@ -31,7 +31,8 @@ export default function Navbar() {
           <NavLink href="/planners">Planners</NavLink>
           <NavLink href="/contact">Contact</NavLink>
           <Link
-            href="/guest/DEMO-EVENT-ID/rsvp"
+            href="/r/demo"
+
             className="ml-2 px-4 py-2 rounded-md text-sm bg-brand.ink text-white hover:opacity-90"
           >
             Try RSVP
