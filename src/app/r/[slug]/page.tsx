@@ -1,10 +1,12 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
-// Force runtime to server so we can read server env safely
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs"; // avoid Edge runtime env issues
 
-export default async function SlugPage({
+type EventRow = { id: string } | null;
+
+export default async function SlugRedirect({
   params,
 }: {
   params: { slug: string };
@@ -12,8 +14,8 @@ export default async function SlugPage({
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_ROLE;
 
-  // If env missing, just go home (prevents build explosions)
   if (!url || !serviceKey) {
+    // If env isn't available at build/runtime, don't fail the build
     redirect("/");
   }
 
@@ -24,10 +26,10 @@ export default async function SlugPage({
     .select("id")
     .eq("slug", params.slug)
     .limit(1)
-    .single();
+    .single<EventRow>();
 
   if (error || !data?.id) {
-    redirect("/"); // or a nicer 404
+    redirect("/");
   }
 
   redirect(`/guest/${data.id}/rsvp`);
