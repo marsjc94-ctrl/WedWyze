@@ -1,10 +1,18 @@
 "use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
-  const active = usePathname() === href;
+function NavLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  const pathname = usePathname();
+  const active = pathname === href;
   return (
     <Link
       href={href}
@@ -15,14 +23,20 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
       {children}
     </Link>
   );
-};
+}
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b bg-white/80 backdrop-blur">
       <div className="mx-auto max-w-6xl h-16 px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="WedWyze" width={28} height={28} />
+          <Image
+            src="/logo.svg"
+            alt="WedWyze"
+            width={28}
+            height={28}
+            priority
+          />
           <span className="font-semibold text-lg text-brand.ink">WedWyze</span>
         </Link>
         <nav className="flex items-center gap-2">
@@ -32,7 +46,6 @@ export default function Navbar() {
           <NavLink href="/contact">Contact</NavLink>
           <Link
             href="/r/demo"
-
             className="ml-2 px-4 py-2 rounded-md text-sm bg-brand.ink text-white hover:opacity-90"
           >
             Try RSVP
