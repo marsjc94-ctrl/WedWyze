@@ -1,30 +1,26 @@
+import type { Metadata } from "next";
 import "./globals.css";
-import { Inter } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "WedWyze — one single pane of glass",
-  description: "One source of truth for weddings: couples, guests, planners.",
-  icons: { icon: "/favicon.svg" },
-  themeColor: "#E11D48",
+export const metadata: Metadata = {
+  title: "WedWyze — The Single Source of Truth for Your Wedding",
+  description:
+    "One source of truth for weddings: couples, guests, planners. RSVPs, schedules, travel, room blocks, reminders, and registries — all in one place.",
   openGraph: {
-    title: "WedWyze",
+    title: "WedWyze — The Single Source of Truth for Your Wedding",
     description: "Weddings, simplified — one single pane of glass.",
-    images: ["/og.png"], // add later if you have it
+    type: "website",
+    url: "https://wedwyze.com",
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className="bg-white">
-      <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-[70vh]">{children}</main>
-        <Footer />
-      </body>
+    <html lang="en">
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

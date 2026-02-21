@@ -1,7 +1,91 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root { color-scheme: light; }
-body { color: theme('colors.brand.ink'); background: #fff; }
-a { text-underline-offset: 2px; }
+@theme inline {
+  --color-gold-50: #fdfaf3;
+  --color-gold-100: #faf3e0;
+  --color-gold-200: #f4e4b8;
+  --color-gold-300: #edcf82;
+  --color-gold-400: #ddb347;
+  --color-gold-500: #c9991f;
+  --color-gold-600: #a67c14;
+  --color-ivory-50: #fefdfb;
+  --color-ivory-100: #fdf9f3;
+  --color-ivory-200: #faf3e8;
+  --color-ivory-300: #f5eada;
+  --color-sage-50: #f6f7f4;
+  --color-sage-100: #e8ebe2;
+  --color-sage-200: #d3d9c6;
+  --color-sage-300: #b3bda0;
+  --color-sage-400: #93a07a;
+  --color-dark: #3d3029;
+  --color-dark-light: #5a483d;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #fefdfb;
+  color: #3d3029;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #ddb347, #c9991f);
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(201, 153, 31, 0.3);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #c9991f, #a67c14);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201, 153, 31, 0.4);
+}
+
+.btn-outline-gold {
+  border: 2px solid #c9991f;
+  color: #c9991f;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: #c9991f;
+  color: white;
+}
+
+/* Auth & Dashboard card styling */
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(61, 48, 41, 0.08);
+  border: 1px solid #f5eada;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid #f4e4b8;
+  background: #fefdfb;
+  color: #3d3029;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #c9991f;
+  box-shadow: 0 0 0 3px rgba(201, 153, 31, 0.1);
+}
+
+.input-field::placeholder {
+  color: #b3bda0;
+}
